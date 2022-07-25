@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import api from '../helpers/api'
+import api from '../helpers/api';
 
 
 export default function HomeScreen({name, url}) {
@@ -13,16 +13,16 @@ export default function HomeScreen({name, url}) {
     }
     catch (error) {
       console.log(error);
-
     }
   }
   useEffect(() => {
     getCountries();
 
   }, []);
+
   
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <ScrollView >
       {/* <Text>Home!</Text> */}
       {
         countries.map(({ name, url }, index) => {
@@ -34,6 +34,6 @@ export default function HomeScreen({name, url}) {
           )
         })
       }
-    </View>
+    </ScrollView>
   );
 }
