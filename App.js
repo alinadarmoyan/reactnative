@@ -1,5 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
+<<<<<<< HEAD
 import { StyleSheet, Text, View , ScrollView} from 'react-native';
+=======
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+>>>>>>> 76f0edb58451f9c1dd5671e5942c53999cda705c
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './Components/HomeScreen/HomeScreen';
