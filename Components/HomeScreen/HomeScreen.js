@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , ScrollView} from 'react-native';
 import React, { useEffect, useState } from 'react';
 import api from '../helpers/api'
 
 
-export default function HomeScreen({name, url}) {
+export default function HomeScreen({name,url}) {
 
   const [countries, setCountries] = useState([]);
   const getCountries = async () => {
@@ -22,18 +22,18 @@ export default function HomeScreen({name, url}) {
   }, []);
   
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <ScrollView>
       {/* <Text>Home!</Text> */}
       {
-        countries.map(({ name, url }, index) => {
+        ccountries.map(({ name, url }, index) => {
           return(
-            <View>
+            <ScrollView>
               <Text style={{margin: 10}}>{name}</Text>
               <Text style={{margin: 20}}>{url}</Text>
-            </View>
+            </ScrollView>
           )
         })
       }
-    </View>
+    </ScrollView>
   );
 }
