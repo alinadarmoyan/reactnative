@@ -1,17 +1,17 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import api from '../helpers/api';
 
-export default function Country(curl) {
-    console.log(5);
+export default function Country({curl}) {
     const [country, setCountry] = useState([]);
+    console.log(curl);
     const getCountry = async () => {
         try {
-            
-          const { info } = await api.get({curl});
-          setCountry(info);
+            const { info } = await api.get({curl});
+            setCountry(info);
         }
         catch (e) {
-          console.log(e);
+            console.log(e);
         }
     }
     useEffect(() => {
@@ -19,11 +19,12 @@ export default function Country(curl) {
     }, []); 
     return (
         country.map(({names}) => {
-            return(
-                <ScrollView>
-                    <Text>{names.full}</Text>
-                </ScrollView>
-            )
+            // return(
+            //     <View>
+            //         <Text>{names.full}</Text>
+            //     </View>
+            // )
+            console.log(names.full)
         })
        
     );

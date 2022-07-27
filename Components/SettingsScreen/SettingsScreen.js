@@ -7,4 +7,4 @@ export default function SettingsScreen() {
         <Text>Settings!</Text>
       </ScrollView>
     );
-}  
+}     

@@ -2,9 +2,11 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import api from '../helpers/api';
 import Country from "../Country/Country";
+import { useNavigation } from '@react-navigation/native';
 
 
-export default function HomeScreen({name,url}) {
+export default function HomeScreen() {
+  const navigation = useNavigation();
   const [countries, setCountries] = useState([]);
   const getCountries = async () => {
     try {
@@ -21,7 +23,6 @@ export default function HomeScreen({name,url}) {
   }, []);  
   return (
     <ScrollView >
-      {/* <Text>Home!</Text> */}
       {
         countries.map(({ name, url }, index) => {
           let curl = url.substring(27);
@@ -29,16 +30,17 @@ export default function HomeScreen({name,url}) {
                 
             return(
               <ScrollView>
-                <Text onPress={() => {
-                  
+                <Text onPress={() => 
+                  navigation.navigate(Country({curl}))
                   // alert(curl);
                   // console.log(curl);
-                  
-                  <Country curl={curl}/> 
-                  }}>
+                  // <View>
+                    // <Country curl={curl} key={index}/> 
+                  // </View>
+                  }>
                   {name}
                 </Text>
-                {/* <Text style={{margin: 20}}>{names.full}</Text> */}
+                {/* <Text style={{margin: 20}}>{names.full}</Text> */}           
               </ScrollView>
             )
         })
