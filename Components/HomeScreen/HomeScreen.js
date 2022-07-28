@@ -5,6 +5,34 @@ import Country from "../Country/Country";
 import { useNavigation } from '@react-navigation/native';
 
 
+// Style start
+const styles = StyleSheet.create({
+  home: {
+    textAlign: "center",
+  },
+
+  homeText: {
+    flex: 1,
+    padding: 5,
+    backgroundColor: "#eaeaea"
+  },
+
+  homeTitle: {
+    marginTop: 16,
+    paddingVertical: 5,
+    paddingBottom: 8,
+    borderWidth: 4,
+    borderColor: "#20232a",
+    borderRadius: 6,
+    backgroundColor: "#61dafb",
+    color: "#20232a",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold"
+  }
+})
+//Style end
+
 export default function HomeScreen() {
   const navigation = useNavigation();
   const [countries, setCountries] = useState([]);
@@ -17,32 +45,28 @@ export default function HomeScreen() {
       console.log(error);
     }
   }
-  
+
   useEffect(() => {
     getCountries();
-  }, []);  
+  }, []);
   return (
-    <ScrollView >
+    <ScrollView style={styles.home}>
       {
         countries.map(({ name, url }, index) => {
           let curl = url.substring(27);
           // console.log(curl);
-                
-            return(
-              <ScrollView key={index}>
-                <Text onPress={() => 
-                  navigation.navigate('Country',{curl})
-                  // alert(curl);
-                  // console.log(curl);
-                  // <View>
-                    // <Country curl={curl} key={index}/> 
-                  // </View>
-                  }>
-                  {name}
-                </Text>
-                {/* <Text style={{margin: 20}}>{names.full}</Text> */}           
-              </ScrollView>
-            )
+
+          return (
+            <View style={styles.homeText} key={index}>
+              <Text style={styles.homeTitle} onPress={() =>
+                navigation.navigate('Country', { curl })
+
+              }>
+                {name}
+              </Text>
+
+            </View>
+          )
         })
       }
     </ScrollView>
