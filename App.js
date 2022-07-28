@@ -17,7 +17,7 @@ const HomeNavigation = ()=>{
     return (
       <HomeNavigator.Navigator>
         <HomeNavigator.Screen name="Home" component={HomeScreen} options={{
-          title: 'Home Page',
+          title: 'All countries',
         }} />
         <HomeNavigator.Screen name="Country" component={Country}/>
       </HomeNavigator.Navigator>
@@ -30,6 +30,7 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeNavigation} options={{
+          headerShown: false,
           title: 'Home',
           tabBarIcon: () => {
             return (
