@@ -29,9 +29,9 @@ export default function HomeScreen() {
           // console.log(curl);
                 
             return(
-              <ScrollView>
+              <ScrollView key={index}>
                 <Text onPress={() => 
-                  navigation.navigate(Country({curl}))
+                  navigation.navigate('Country',{curl})
                   // alert(curl);
                   // console.log(curl);
                   // <View>

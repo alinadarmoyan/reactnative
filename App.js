@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './Components/HomeScreen/HomeScreen';
 import SettingsScreen from './Components/SettingsScreen/SettingsScreen';
@@ -11,14 +12,24 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
-
+const HomeNavigator= createNativeStackNavigator();
+const HomeNavigation = ()=>{
+    return (
+      <HomeNavigator.Navigator>
+        <HomeNavigator.Screen name="Home" component={HomeScreen} options={{
+          title: 'Home Page',
+        }} />
+        <HomeNavigator.Screen name="Country" component={Country}/>
+      </HomeNavigator.Navigator>
+    )
+}
 export default function App() {
 
   return (
 
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} options={{
+        <Tab.Screen name="Home" component={HomeNavigation} options={{
           title: 'Home',
           tabBarIcon: () => {
             return (
@@ -36,16 +47,6 @@ export default function App() {
           },
           tabBarActiveTintColor: 'tomato'
         }} />
-
-        <Tab.Screen name="Country" component={Country} options={{
-          title: 'Country',
-          tabBarIcon: () => {
-            return (
-              <Entypo name="globe" size={24} color="black" />
-            );
-          },
-        }} />
-
       </Tab.Navigator>
     </NavigationContainer>
 
