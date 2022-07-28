@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
-export default function SettingsScreen() {
+export default function AboutUsScreen() {
     
     return (
       <ScrollView>
-        <Text>Settings!</Text>
+        <Text>About Us!</Text>
       </ScrollView>
     );
 }     

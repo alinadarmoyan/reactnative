@@ -4,24 +4,25 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './Components/HomeScreen/HomeScreen';
-import SettingsScreen from './Components/SettingsScreen/SettingsScreen';
+import AboutUsScreen from './Components/AboutUsScreen/AboutUsScreen';
 import Country from "./Components/Country/Country";
 import React, { useEffect, useState } from 'react';
 // import api from './helpers/api';
 import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons'; 
 
 const Tab = createBottomTabNavigator();
-const HomeNavigator= createNativeStackNavigator();
-const HomeNavigation = ()=>{
-    return (
-      <HomeNavigator.Navigator>
-        <HomeNavigator.Screen name="Home" component={HomeScreen} options={{
-          title: 'Home Page',
-        }} />
-        <HomeNavigator.Screen name="Country" component={Country}/>
-      </HomeNavigator.Navigator>
-    )
+const HomeNavigator = createNativeStackNavigator();
+const HomeNavigation = () => {
+  return (
+    <HomeNavigator.Navigator>
+      <HomeNavigator.Screen name="Home" component={HomeScreen} options={{
+        title: 'All countries',
+      }} />
+      <HomeNavigator.Screen name="Country" component={Country} />
+    </HomeNavigator.Navigator>
+  )
 }
 export default function App() {
 
@@ -38,12 +39,11 @@ export default function App() {
           },
         }} />
 
-        <Tab.Screen name="Settings" component={SettingsScreen} options={{
-          title: 'Settings',
+        <Tab.Screen name="About us" component={AboutUsScreen} options={{
+          title: 'About us',
           tabBarIcon: () => {
             return (
-              <Ionicons name="settings" size={24} color="black" />
-            );
+              <FontAwesome5 name="users" size={24} color="black" />);
           },
           tabBarActiveTintColor: 'tomato'
         }} />
