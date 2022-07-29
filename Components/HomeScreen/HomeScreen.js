@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   homeText: {
     flex: 1,
     padding: 5,
-    backgroundColor: "#eaeaea"
+    
   },
 
   homeTitle: {
@@ -23,10 +23,9 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     // borderWidth: 4,
     borderWidth: 1,
-    borderColor: "#20232a",
+    borderColor: "#6E85B7",
     borderRadius: 6,
-    backgroundColor: "#61dafb",
-    // backgroundColor: "#5BC0DC",
+    backgroundColor: "#B2C8DF",
     color: "#20232a",
     textAlign: "center",
     fontSize: 16,

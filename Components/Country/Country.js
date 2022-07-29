@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 24,
-        backgroundColor: '#99E2FF',
+        // backgroundColor: '#E6E7C2',
+    
     },
     title1: {
         fontSize: 30,
@@ -39,9 +40,9 @@ const styles = StyleSheet.create({
         paddingBottom: 8,
         // borderWidth: 4,
         borderWidth: 1,
-        borderColor: "#20232a",
+        borderColor: "#6E85B7",
         borderRadius: 6,
-        backgroundColor: "#61dafb",
+        backgroundColor: "#B2C8DF",
         color: "#20232a",
         textAlign: "center",
         fontSize: 16,
