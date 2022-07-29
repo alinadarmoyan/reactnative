@@ -31,7 +31,7 @@ export default function App() {
 
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeNavigation} options={{
+        <Tab.Screen name="Homee" component={HomeNavigation} options={{
           headerShown: false,
           title: 'Home',
           tabBarIcon: () => {

@@ -7,7 +7,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
 
-
 // Style start
 const styles = StyleSheet.create({
     tinyLogo: {
@@ -38,7 +37,8 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         paddingVertical: 5,
         paddingBottom: 8,
-        borderWidth: 4,
+        // borderWidth: 4,
+        borderWidth: 1,
         borderColor: "#20232a",
         borderRadius: 6,
         backgroundColor: "#61dafb",
@@ -139,51 +139,54 @@ export default function Country({ route }) {
     }, []);
     console.log(country);
 
-    const iso2 = country?.names?.iso2.toLowerCase();
+    const iso2 = country ?.names ?.iso2.toLowerCase();
     const image = `https://travelbriefing.org/sites/views/default/images/flags/4x3/${iso2}.svg`;
-    const link = country?.advise?.UA?.url;
+    const link = country ?.advise ?.UA ?.url;
     // console.log(language);
     console.log(neighbors);
 
     return (
         <ScrollView style={styles.container}>
-            <Text style={styles.title1}>{country?.names?.name}</Text>
-            <Text style={styles.titleFull}>{country?.names?.full}</Text>
+            <Text style={styles.title1}>{country ?.names ?.name}</Text>
+            <Text style={styles.titleFull}>{country ?.names ?.full}</Text>
+          
+
             <Image
                 style={styles.tinyLogo}
                 source={{
                     uri: image,
                 }}
             />
+
             {/* <Text>{country?.advise?.UA?.advise}</Text> */}
             <Text style={styles.butSubFullReport}
                 onPress={() => Linking.openURL(link)}>
                 Full Report
             </Text>
-            <Text style={styles.currency}>The currency in {country?.names?.name} is {country?.currency?.name}</Text>
-            <Text style={styles.currencyInUsd}>1 USD = {country?.currency?.rate} {country?.currency?.code}</Text>
+            <Text style={styles.currency}>The currency in {country ?.names ?.name} is {country ?.currency ?.name}</Text>
+            <Text style={styles.currencyInUsd}>1 USD = {country ?.currency ?.rate} {country ?.currency ?.code}</Text>
             <Text style={styles.language}>Language is {language && language}</Text>
             <Text style={styles.naighbors}>Neighbors are: {neighbors && neighbors} </Text>
 
             <View style={styles.containerNumbers}>
                 <View style={styles.containerNumbersNumber}>
                     <Feather name="phone-call" size={24} color="black" />
-                    <Text style={styles.number}>{country?.telephone?.calling_code}</Text>
+                    <Text style={styles.number}>{country ?.telephone ?.calling_code}</Text>
                 </View>
 
                 <View style={styles.containerNumbersNumber}>
                     <FontAwesome5 name="ambulance" size={24} color="black" />
-                    <Text style={styles.number}>{country?.telephone?.ambulance}</Text>
+                    <Text style={styles.number}>{country ?.telephone ?.ambulance}</Text>
                 </View>
 
                 <View style={styles.containerNumbersNumber}>
                     <FontAwesome5 name="fire-alt" size={24} color="black" />
-                    <Text style={styles.number}>{country?.telephone?.fire}</Text>
+                    <Text style={styles.number}>{country ?.telephone ?.fire}</Text>
                 </View>
 
                 <View style={styles.containerNumbersNumber}>
                     <MaterialCommunityIcons name="police-station" size={24} color="black" />
-                    <Text style={styles.number}>{country?.telephone?.police}</Text>
+                    <Text style={styles.number}>{country ?.telephone ?.police}</Text>
                 </View>
 
             </View>
@@ -195,8 +198,8 @@ export default function Country({ route }) {
             </View>
 
             <View style={styles.containerElectricityTexts1}>
-                <Text style={styles.containerElectricityText1}>{country?.electricity?.frequency} Herz</Text>
-                <Text style={styles.containerElectricityText1}>{country?.electricity?.voltage} Volt</Text>
+                <Text style={styles.containerElectricityText1}>{country ?.electricity ?.frequency} Herz</Text>
+                <Text style={styles.containerElectricityText1}>{country ?.electricity ?.voltage} Volt</Text>
             </View>
         </ScrollView>
 
